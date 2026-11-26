@@ -1,0 +1,130 @@
+/*
+ * Columns that scroll independently: search, the bucket listing, and, while
+ * a file is selected, the file panel with a divider that resizes it. Primer's
+ * PageLayout has one pane, so the grid is ours. Below 1200px the file panel
+ * moves under the listing; below 768px everything stacks and the page
+ * scrolls as a whole.
+ */
+.app {
+  display: grid;
+  grid-template:
+    'header header' auto
+    'search main' minmax(0, 1fr)
+    / 22rem minmax(0, 1fr);
+  /* Keeps the divider's z-index inside the app, under dialogs in their portal. */
+  isolation: isolate;
+  height: 100dvh;
+}
+
+/*
+ * --panel-width is the width the divider last set. min() keeps the listing
+ * usable when the window has narrowed since.
+ */
+.withFile {
+  grid-template:
+    'header header header header' auto
+    'search main splitter details' minmax(0, 1fr)
+    / 22rem minmax(0, 1fr) auto min(var(--panel-width, 30rem), calc(100vw - 22rem - 22.5rem));
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: header;
+  gap: var(--base-size-4) var(--base-size-16);
+  align-items: baseline;
+  padding: var(--base-size-12) var(--base-size-24);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
+  background: var(--bgColor-inset);
+}
+
+.brand {
+  margin: 0;
+  font-size: var(--text-title-size-small, 1rem);
+}
+
+.brand a {
+  color: var(--fgColor-default);
+  text-decoration: none;
+}
+
+.tagline {
+  color: var(--fgColor-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.headerLink {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.search {
+  grid-area: search;
+  overflow-y: auto;
+  border-right: var(--borderWidth-thin) solid var(--borderColor-default);
+}
+
+/* A column, so the bucket browser can fill it and its table scroll inside. */
+.main {
+  display: flex;
+  flex-direction: column;
+  grid-area: main;
+  overflow-y: auto;
+}
+
+.splitter {
+  grid-area: splitter;
+}
+
+.details {
+  grid-area: details;
+  overflow-y: auto;
+}
+
+.padded {
+  padding: var(--base-size-24);
+}
+
+@media (width < 1200px) {
+  .app {
+    grid-template:
+      'header header' auto
+      'search main' minmax(0, 1fr)
+      / 20rem minmax(0, 1fr);
+  }
+
+  .withFile {
+    grid-template:
+      'header header' auto
+      'search main' minmax(0, 1fr)
+      'search details' minmax(0, 1fr)
+      / 20rem minmax(0, 1fr);
+  }
+
+  .splitter {
+    display: none;
+  }
+
+  .details {
+    border-top: var(--borderWidth-thin) solid var(--borderColor-default);
+  }
+}
+
+@media (width < 768px) {
+  .app,
+  .withFile {
+    display: block;
+    height: auto;
+  }
+
+  .search {
+    max-height: 60dvh;
+    border-right: none;
+    border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
+  }
+
+  .main,
+  .details {
+    overflow: visible;
+  }
+}

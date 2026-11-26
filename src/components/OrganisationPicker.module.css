@@ -1,0 +1,21 @@
+/*
+ * A long organisation name ends in an ellipsis instead of widening the
+ * sidebar. Primer's button sets `min-width: max-content`, which has to be
+ * lifted before its text can shrink.
+ */
+.anchor button {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.anchor [data-component='buttonContent'] {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.anchor [data-component='text'] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

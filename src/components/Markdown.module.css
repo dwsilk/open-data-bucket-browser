@@ -1,0 +1,96 @@
+.markdown {
+  overflow-wrap: anywhere;
+  line-height: var(--text-body-lineHeight-medium);
+}
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown pre,
+.markdown table {
+  margin: 0 0 var(--base-size-8);
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: var(--base-size-24);
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  margin: var(--base-size-16) 0 var(--base-size-8);
+  font-size: var(--text-body-size-medium);
+}
+
+.markdown a {
+  color: var(--fgColor-accent);
+}
+
+.markdown code {
+  padding: 0 var(--base-size-4);
+  border-radius: var(--borderRadius-small);
+  background: var(--bgColor-neutral-muted);
+  font-family: var(--fontStack-monospace);
+  font-size: 0.9em;
+}
+
+.markdown pre {
+  overflow-x: auto;
+  padding: var(--base-size-8);
+  border-radius: var(--borderRadius-medium);
+  background: var(--bgColor-muted);
+}
+
+.markdown pre code {
+  padding: 0;
+  background: none;
+}
+
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.markdown th,
+.markdown td {
+  padding: var(--base-size-4) var(--base-size-8);
+  border: var(--borderWidth-thin) solid var(--borderColor-default);
+}
+
+/* Short values such as "Managed by" are single Markdown paragraphs. */
+.inline p {
+  display: inline;
+  margin: 0;
+}
+
+.document h1,
+.document h2 {
+  padding-bottom: var(--base-size-4);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-muted);
+}
+
+.document h1 {
+  font-size: var(--text-title-size-medium);
+}
+
+.document h2 {
+  font-size: var(--text-title-size-small);
+}
+
+.document blockquote {
+  margin: 0 0 var(--base-size-8);
+  padding: 0 var(--base-size-12);
+  border-left: var(--borderWidth-thick) solid var(--borderColor-default);
+  color: var(--fgColor-muted);
+}

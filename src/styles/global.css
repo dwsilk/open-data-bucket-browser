@@ -1,0 +1,26 @@
+/*
+ * The only global stylesheet. Colours, sizes and type all come from
+ * @primer/primitives tokens, which main.tsx loads for light and dark.
+ */
+html,
+body {
+  margin: 0;
+  background: var(--bgColor-default);
+  color: var(--fgColor-default);
+}
+
+body {
+  font-family: var(--fontStack-system);
+  font-size: var(--text-body-size-medium);
+}
+
+code {
+  font-family: var(--fontStack-monospace);
+  font-size: 0.9em;
+}
+
+/* While the file panel's divider is dragged, the whole page resizes, not selects. */
+body:has([data-resizing]) {
+  cursor: col-resize;
+  user-select: none;
+}

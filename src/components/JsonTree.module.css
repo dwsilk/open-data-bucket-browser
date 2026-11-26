@@ -1,0 +1,83 @@
+.tree {
+  font-family: var(--fontStack-monospace);
+  font-size: var(--text-body-size-small);
+  line-height: var(--text-body-lineHeight-medium);
+}
+
+.row,
+.toggle {
+  display: flex;
+  gap: var(--base-size-4);
+  align-items: baseline;
+  overflow-wrap: anywhere;
+}
+
+/* Lines a leaf up with the label of a node that has a chevron. */
+.spacer {
+  flex: none;
+  width: 12px;
+}
+
+.toggle {
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: var(--borderRadius-small);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.toggle svg {
+  flex: none;
+  align-self: center;
+  color: var(--fgColor-muted);
+}
+
+.toggle:hover {
+  background: var(--bgColor-neutral-muted);
+}
+
+.children {
+  margin: 0;
+  padding-left: var(--base-size-16);
+  list-style: none;
+}
+
+.more {
+  margin-left: calc(var(--base-size-16) + 12px + var(--base-size-4));
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--fgColor-accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.more:hover {
+  text-decoration: underline;
+}
+
+.key {
+  color: var(--color-prettylights-syntax-entity-tag);
+}
+
+.index,
+.count,
+.punctuation {
+  color: var(--fgColor-muted);
+}
+
+.string {
+  color: var(--color-prettylights-syntax-string);
+}
+
+.number {
+  color: var(--color-prettylights-syntax-constant);
+}
+
+.literal {
+  color: var(--color-prettylights-syntax-keyword);
+}

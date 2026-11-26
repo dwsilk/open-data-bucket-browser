@@ -1,0 +1,143 @@
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--text-body-size-medium);
+  table-layout: fixed;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: var(--base-size-8) var(--base-size-12);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
+  background: var(--bgColor-muted);
+  text-align: left;
+}
+
+.table td {
+  padding: var(--base-size-4) var(--base-size-12);
+  border-top: var(--borderWidth-thin) solid var(--borderColor-muted);
+  vertical-align: middle;
+}
+
+.table tbody tr:first-child td {
+  border-top: none;
+}
+
+.table tbody tr:hover {
+  background: var(--bgColor-muted);
+}
+
+.selected,
+.table tbody tr.selected:hover {
+  background: var(--bgColor-accent-muted);
+}
+
+.sort {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--fgColor-default);
+  font: inherit;
+  font-weight: var(--base-text-weight-semibold, 600);
+  cursor: pointer;
+}
+
+.name {
+  display: flex;
+  gap: var(--base-size-8);
+  align-items: center;
+  min-width: 0;
+  color: var(--fgColor-default);
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.name:hover {
+  color: var(--fgColor-accent);
+  text-decoration: underline;
+}
+
+.folderIcon {
+  display: inline-flex;
+  flex: none;
+  color: var(--fgColor-accent);
+}
+
+.fileIcon {
+  display: inline-flex;
+  flex: none;
+  color: var(--fgColor-muted);
+}
+
+/* Two classes deep to beat the `.table th` and `.table td` padding. */
+.table .check {
+  width: 2.5rem;
+  padding-right: 0;
+}
+
+.numeric {
+  width: 7rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.table th.numeric {
+  text-align: right;
+}
+
+.date {
+  width: 12rem;
+  color: var(--fgColor-muted);
+  white-space: nowrap;
+}
+
+/* Two classes deep, as for `.check`: the icon buttons need no cell padding. */
+.table .actions {
+  width: 2rem;
+  padding-right: var(--base-size-4);
+  padding-left: var(--base-size-4);
+  text-align: center;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/*
+ * The table scrolls inside the column, so only the rows in view are rendered
+ * (see ListingTable.tsx). It takes the height left in the column; where the
+ * page itself scrolls (narrow screens), the max-height keeps it a scroller.
+ * The container type lets the columns follow the pane width, not the window.
+ */
+.scroller {
+  flex: 0 1 auto;
+  max-height: 80dvh;
+  overflow: auto;
+  border: var(--borderWidth-thin) solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+  container-type: inline-size;
+  overscroll-behavior: contain;
+}
+
+.spacer td {
+  padding: 0;
+  border: none;
+}
+
+.table tbody tr.spacer:hover {
+  background: none;
+}
+
+@container (width < 40rem) {
+  .date {
+    display: none;
+  }
+}

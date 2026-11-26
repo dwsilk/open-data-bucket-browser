@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run lint:css
+      - run: npm run typecheck
+      - run: npm run test
+
+      # The build needs an index. --no-probe skips the three-minute bucket
+      # check: CI proves the build works, not which buckets list today.
+      - run: npm run index -- --no-probe
+      - run: npm run build
+
+      # The specs replace the index and S3 with fixtures, so they need no
+      # network beyond the browser download.
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          CI: true

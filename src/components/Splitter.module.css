@@ -1,0 +1,26 @@
+/*
+ * A one-pixel line with a wider grab area either side of it, so it looks like
+ * a border but is easy to catch with a pointer.
+ */
+.splitter {
+  position: relative;
+  z-index: 2;
+  width: var(--borderWidth-thin);
+  background: var(--borderColor-default);
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.splitter::after {
+  position: absolute;
+  inset: 0 calc(-1 * var(--base-size-4));
+  content: '';
+}
+
+.splitter:hover,
+.splitter:focus-visible,
+.splitter[data-resizing] {
+  outline: none;
+  background: var(--borderColor-accent-emphasis);
+  box-shadow: 0 0 0 1px var(--borderColor-accent-emphasis);
+}

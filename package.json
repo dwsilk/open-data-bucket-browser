@@ -1,0 +1,90 @@
+{
+  "name": "open-data-bucket-browser",
+  "version": "0.1.0",
+  "description": "Search the AWS Registry of Open Data and browse its public S3 buckets from a static page",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "scripts": {
+    "build": "npm run index:ensure && tsc --noEmit && vite build",
+    "dev": "vite",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "index": "tsx scripts/index-registry.ts",
+    "index:ensure": "tsx scripts/index-registry.ts --if-missing",
+    "lint": "eslint src scripts e2e",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
+    "lint:fix": "eslint src scripts e2e --fix",
+    "prepare": "husky",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,mjs,json,md,html,yml}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@primer/octicons-react": "^19.42.0",
+    "@primer/primitives": "^11.10.0",
+    "@primer/react": "^38.45.0",
+    "@tanstack/react-virtual": "^3.14.26",
+    "client-zip": "^2.5.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-is": "^19.3.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.6.7"
+  },
+  "overrides": {
+    "eslint-plugin-jsx-a11y": {
+      "eslint": "$eslint"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.9",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "happy-dom": "^20.14.6",
+    "husky": "^9.1.7",
+    "js-yaml": "^4.3.2",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10",
+    "stylelint": "^17.16.0",
+    "stylelint-config-standard": "^40.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.2",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0"
+  }
+}

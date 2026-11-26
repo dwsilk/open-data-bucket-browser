@@ -1,0 +1,114 @@
+/* Fills the column, so the listing table can take the height that is left. */
+.browser {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--base-size-12);
+  min-height: 0;
+  padding: var(--base-size-16) var(--base-size-24) var(--base-size-24);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-8);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8) var(--base-size-16);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-title-size-medium);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  align-items: center;
+  margin: 0;
+  color: var(--fgColor-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.region {
+  display: inline-flex;
+  gap: var(--base-size-4);
+  align-items: center;
+}
+
+.toolbar {
+  display: flex;
+  gap: var(--base-size-8);
+  align-items: center;
+}
+
+.crumbs {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.bucketCrumb {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  border-radius: var(--borderRadius-small);
+  background: none;
+  color: var(--fgColor-link);
+  font: inherit;
+  cursor: pointer;
+}
+
+.bucketCrumb:hover {
+  text-decoration: underline;
+}
+
+.bucketCrumb:focus-visible {
+  outline: 2px solid var(--focus-outlineColor);
+  outline-offset: 2px;
+}
+
+.bucketCrumb svg {
+  color: var(--fgColor-muted);
+}
+
+.filter {
+  display: flex;
+}
+
+.filterInput {
+  flex: 1;
+}
+
+.loading {
+  display: flex;
+  gap: var(--base-size-8);
+  align-items: center;
+  color: var(--fgColor-muted);
+}
+
+.empty {
+  margin: 0;
+  color: var(--fgColor-muted);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-12);
+  align-items: center;
+  color: var(--fgColor-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.error {
+  color: var(--fgColor-danger);
+}

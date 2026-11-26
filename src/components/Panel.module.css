@@ -1,0 +1,197 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-8);
+  padding: var(--base-size-16);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-muted);
+}
+
+/* The selected file. Its header stays in view while the preview scrolls. */
+.file {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.fileHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12) var(--base-size-16);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-muted);
+  background: var(--bgColor-default);
+}
+
+.fileBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-12);
+  padding: var(--base-size-16);
+}
+
+.loading {
+  display: flex;
+  gap: var(--base-size-8);
+  align-items: center;
+  margin: 0;
+  color: var(--fgColor-muted);
+}
+
+.raw {
+  margin: 0;
+  padding: var(--base-size-8);
+  overflow-x: auto;
+  border-radius: var(--borderRadius-medium);
+  background: var(--bgColor-muted);
+  font-family: var(--fontStack-monospace);
+  font-size: var(--text-body-size-small);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* In the dialog, whose body has its own padding. */
+.dialogContent > .section {
+  padding-inline: 0;
+}
+
+.dialogContent > .section:first-child {
+  padding-top: 0;
+}
+
+.dialogContent > .section:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+}
+
+.sectionHeader {
+  display: flex;
+  gap: var(--base-size-8);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--text-title-size-medium);
+  overflow-wrap: anywhere;
+}
+
+.subheading {
+  margin: 0;
+  font-size: var(--text-body-size-medium);
+}
+
+.minorheading {
+  margin: var(--base-size-8) 0 0;
+  color: var(--fgColor-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.muted {
+  margin: 0;
+  color: var(--fgColor-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--base-size-8) var(--base-size-12);
+  margin: 0;
+  font-size: var(--text-body-size-small);
+}
+
+.fields dt {
+  color: var(--fgColor-muted);
+}
+
+.fields dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.copyable {
+  display: flex;
+  gap: var(--base-size-4);
+  align-items: flex-start;
+}
+
+.copyable code,
+.identifier {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--fontStack-monospace);
+  overflow-wrap: anywhere;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags a {
+  text-decoration: none;
+}
+
+.resources {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-12);
+  margin: 0;
+  padding: 0;
+  font-size: var(--text-body-size-small);
+  list-style: none;
+}
+
+.resources > li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-4);
+}
+
+.resourceTitle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  align-items: center;
+  font-weight: var(--base-text-weight-semibold, 600);
+}
+
+.resourceTitle code {
+  font-family: var(--fontStack-monospace);
+  overflow-wrap: anywhere;
+}
+
+.explore {
+  margin: 0;
+  padding-left: var(--base-size-16);
+}
+
+.usage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-4);
+  margin: 0;
+  padding-left: var(--base-size-16);
+  font-size: var(--text-body-size-small);
+}
+
+.external {
+  display: inline-flex;
+  gap: var(--base-size-4);
+  align-items: center;
+  overflow-wrap: anywhere;
+}

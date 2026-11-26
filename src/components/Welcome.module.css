@@ -1,0 +1,79 @@
+.welcome {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-16);
+  max-width: 48rem;
+  padding: var(--base-size-24);
+}
+
+.welcome p {
+  margin: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-title-size-large, 2rem);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: var(--text-title-size-small, 1rem);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--base-size-12);
+  margin: 0;
+}
+
+.stats > div {
+  padding: var(--base-size-12) var(--base-size-16);
+  border: var(--borderWidth-thin) solid var(--borderColor-default);
+  border-radius: var(--borderRadius-medium);
+}
+
+.stats dt {
+  color: var(--fgColor-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: var(--text-title-size-medium);
+  font-weight: var(--base-text-weight-semibold, 600);
+}
+
+.note {
+  color: var(--fgColor-muted);
+}
+
+.facet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-8);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--base-size-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags a {
+  text-decoration: none;
+}
+
+/* Some organisation names are a sentence long. */
+.tags span {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.count {
+  margin-left: var(--base-size-4);
+  color: var(--fgColor-muted);
+}
